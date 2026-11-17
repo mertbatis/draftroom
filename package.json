@@ -1,0 +1,1 @@
+{"name":"draftroom","version":"1.0.0","private":true,"type":"module","scripts":{"index":"node tools/build-index.mjs","test":"node --test test/analyze.test.mjs","start":"node serve.mjs 4891"},"license":"MIT"}

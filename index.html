@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Draft Room — Fearless draft prep for Cloud9</title>
+<meta name="description" content="Opponent pick/ban tendencies with evidence, a Fearless Draft series board with live predictions, and self-scouting, built on official GRID esports data read from your local clone.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="src/ui.css">
+</head>
+<body>
+<header>
+  <div class="brand"><img src="icon.svg" width="36" height="36" alt=""><div><h1>Draft Room</h1><p>Fearless draft prep, from official GRID match data</p></div></div>
+  <div class="data">
+    <span id="dataStatus" class="pill warn">No match data loaded</span>
+    <label class="btn">Load draft index<input id="file" type="file" accept=".json,application/json" hidden></label>
+  </div>
+</header>
+
+<section class="controls">
+  <label>Our team <select id="us"></select></label>
+  <label>Opponent <select id="opp"></select></label>
+  <label>Window <select id="win"></select></label>
+  <label>Games <select id="lastN"><option value="">All</option><option value="30">Last 30</option><option value="15">Last 15</option></select></label>
+</section>
+
+<nav><button data-tab="scout" class="on">Scouting report</button><button data-tab="series">Fearless series board</button><button data-tab="self">Self-scout</button></nav>
+
+<main>
+  <section id="scout" class="tab on"></section>
+  <section id="series" class="tab"></section>
+  <section id="self" class="tab"></section>
+</main>
+
+<div id="empty" class="emptybox" hidden>
+  <h2>Load your local draft index</h2>
+  <p>Draft Room never ships match data. Build the index from your clone of the official GRID data, then load it here: it stays in this browser.</p>
+  <pre>git clone https://github.com/cloud9esports/stl-hackathon-2026-grid-starter.git
+node tools/build-index.mjs --data ../stl-hackathon-2026-grid-starter   # writes .local/index.json
+node serve.mjs                                                        # opens with the index loaded</pre>
+  <p>Or press <b>Load draft index</b> and pick <code>.local/index.json</code>. The Fearless series board works without data too.</p>
+</div>
+
+<footer>Draft Room is not endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games and all associated properties are trademarks or registered trademarks of Riot Games, Inc. Champion icons load from Riot's Data Dragon. Match data: GRID, via the hackathon's official data repository, read locally.</footer>
+<script type="module" src="src/app.js"></script>
+</body>
+</html>

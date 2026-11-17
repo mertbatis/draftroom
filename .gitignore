@@ -1,0 +1,7 @@
+.local/
+node_modules/
+*.jsonl
+*.jsonl.zst
+*.zst
+stl-hackathon-2026-grid-starter/
+kare/
